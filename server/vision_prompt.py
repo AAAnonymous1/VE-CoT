@@ -2,34 +2,35 @@
 format prompt for vlm describe
 """
 ROUGH_DESCRIPTION_DATASET_PROMPT="""
-## 任务说明：
-    当前任务为简要描述遥感图像，你需要完成的任务部分为：
-    1. 输入遥感卫星图像，你需要对图像进行总体性的简单描述，请注意当前描述不要出现详细的可用于判别的具体信息，但可以出现类别描述
-    2. 请你不要输出任何无关内容，我们的对话内容将全部作为数据集
-    3. 请不要用代码框输出，也不要输出收到
-    4. VLM描述时请不要像chat那样给出下一步建议，专注于图像描述即可
-    5. 当前任务可能涉及多轮对话，请每轮都严格遵循要求
-    6. 描述示例仅供参考，请根据具体内容进行描述
-## 描述示例：
-    这是一张高分辨率卫星图像，显示一艘航空母舰停靠在港口。甲板上停放有大量舰载机，呈规则排列。舰艉位置有白色编号，但清晰度不足，难以辨认具体数字。周边港区有道路、建筑与车辆，环境布局规整。
+## Task Description:
+    The current task is to briefly describe a remote-sensing image; your part of the task is:
+    1. Upon receiving a satellite remote-sensing image, you must provide an overall, simple description. Make sure the description does **not** contain fine-grained identifying information, but category-level descriptions are allowed.
+    2. Do **not** output any irrelevant content; our entire dialogue will be used as the dataset.
+    3. Do **not** use code blocks and do not output acknowledgements such as “received”.
+    4. When writing the VLM description, do **not** give next-step suggestions like chat; focus only on describing the image.
+    5. The task may involve multiple rounds of dialogue; strictly follow these requirements in every round.
+    6. The description example is for reference only; describe according to the actual content.
+## Description Example:
+    This is a high-resolution satellite image showing an aircraft carrier berthed at a harbour. Numerous carrier-borne aircraft are neatly parked on the deck. A white number is present at the stern, but the resolution is insufficient to distinguish the exact digits. Roads, buildings, and vehicles are laid out regularly around the port area.
 """
+
 TOOL_OUTPUT_DESCRIBE_DATASET_PROMPT="""
-## 任务说明：
-    当前任务为详细描述工具处理结果图像，你需要完成的任务部分为：
-    1. 输入遥感图像经工具处理后的结果图像，你需要对结果图像进行详细的描述，同时请严格按照图像内容描述
-    2. 请不要用代码框输出，也不要输出收到
-    3. VLM描述时请不要像chat那样给出下一步建议，专注于图像描述即可
-    4. 当前任务可能涉及多轮对话，请每轮都严格遵循要求
-    5. 如果是框图请针对每个框图区域进行细致描述
-    6. 描述示例仅供参考，请根据具体内容进行描述
-    7. 请尽可能多地进行细粒度描述，以帮助后续信息提取
-## 描述示例：
-    VLM描述时如果没有框则直接描述图像内容，如果图中有框请分别对每个框进行描述，需包含框的坐标以及内容，框图描述会输入GroundingDINO输出的框及其坐标
-    框图描述示例：
-        左上水面区域框选出一艘船只，类别为“cargo ship”，置信度0.393，坐标为(3, 162, 1245, 653)，覆盖整个图像主体，疑似误判。
-        主体舰船区域框出大范围区域，类别为“military warship cargo ship”，置信度0.379，坐标为(129, 67, 1042, 409)，覆盖航空母舰全体结构。
-    常规图像描述示例（以二值化处理为例）：
-        二值化增强后的图像，显示{{详细描述图像}}
+## Task Description:
+    The current task is to give a detailed description of the tool-processed image; your part of the task is:
+    1. Given the remote-sensing image after tool processing, provide a detailed description strictly according to the image content.
+    2. Do **not** use code blocks and do not output acknowledgements such as “received”.
+    3. When writing the VLM description, do **not** give next-step suggestions like chat; focus only on describing the image.
+    4. The task may involve multiple rounds of dialogue; strictly follow these requirements in every round.
+    5. If the image contains bounding boxes, describe each boxed region in detail.
+    6. The description example is for reference only; describe according to the actual content.
+    7. Provide as much fine-grained description as possible to facilitate subsequent information extraction.
+## Description Example:
+    When the image has no boxes, simply describe the image content. If boxes are present, describe each box separately, including its coordinates and content; the box data come from GroundingDINO output.
+    Bounding-box description example:
+        Upper-left water area: a box selects a ship, category “cargo ship”, confidence 0.393, coordinates (3, 162, 1245, 653), covering the entire main subject, likely a mis-classification.
+        Main ship area: a large box labelled “military warship cargo ship”, confidence 0.379, coordinates (129, 67, 1042, 409), covering the entire aircraft-carrier structure.
+    Regular image description example (binarisation case):
+        The binarised, enhanced image shows {{detailed description of the image}}
 """
 
 ROUGH_DESCRIPTION_PROCESS_PROMPT="""

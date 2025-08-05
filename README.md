@@ -9,13 +9,15 @@ gist/
 ├── client/
 │ ├── chat_client.py # Agent interaction and reasoning interface via gradio
 │ ├── create_dataset_client.py # Agent to generate datasets with multi-modal reasoning traces
-│ └── dataset_prompt.py # Prompt construction logic generation
+│ ├── dataset_prompt.py # Prompt construction logic generation (en)
+│ └── dataset_prompt_zh_hans.py # Prompt construction logic generation (zh_hans)
 │
 ├── server/
 │ ├── mcp_search_server.py # MCP search tool server
 │ ├── mcp_vision_server_chat.py # MCP vision server for chat reasoning
 │ ├── mcp_vision_server.py # MCP vision server for dataset reasoning
-│ └── vision_prompt.py # Prompt templates and logic for vision models
+│ ├── vision_prompt.py # Prompt templates and logic for vision models (en)
+│ └── vision_prompt_zh_hans.py # Prompt templates and logic for vision models (zh_hans)
 │
 ├── utils/
 │ └── vlm_utils.py # Utilities for handling vision-language model
@@ -55,3 +57,4 @@ python client/create_dataset_client.py
 > These models require additional setup, including downloading pretrained weights.  
 > Please refer to their respective repositories for detailed installation instructions.  
 > Please check your network environment before running the agent.
+
