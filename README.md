@@ -2,6 +2,12 @@
 
 This repository contains the core components for a multi-modal reasoning agent system. The system is designed to support multi-round vision-language reasoning tasks, dataset construction, and modular tool invocation using a Model Context Protocol (MCP)-based architecture.
 
+## 🧪 Demo
+
+![Watch the demo](resources/demo.png)
+
+https://github.com/user-attachments/assets/4d428d1c-341c-4793-8116-f47d357cf73b
+
 ## 📁 Project Structure
 
 ```text
@@ -58,8 +64,3 @@ python client/create_dataset_client.py
 > Please refer to their respective repositories for detailed installation instructions.  
 > Please check your network environment before running the agent.
 
-## 🧪 Demo
-
-![Watch the demo](resources/demo.png)
-
-View the image above or [click here](https://github.com/AAAnonymous1/VE-CoT/releases/tag/v0.0.1) to download the demo video.
