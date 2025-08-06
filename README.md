@@ -33,7 +33,7 @@ gist/
 - Dataset creation for fine-tuning or evaluation
 - Compatible with vision-language models (e.g., OpenFlamingo, Qwen-VL)
 
-## 🧪 Usage
+## 🧩 Usage
 ### Launch interactive agent client
 ```bash
 python client/chat_client.py
@@ -58,3 +58,8 @@ python client/create_dataset_client.py
 > Please refer to their respective repositories for detailed installation instructions.  
 > Please check your network environment before running the agent.
 
+## 🧪 Demo
+
+![Watch the demo](resources/demo.png)
+
+查看上方图片或 [点击此处](https://github.com/AAAnonymous1/VE-CoT/releases/tag/v0.0.1) 下载演示视频。
