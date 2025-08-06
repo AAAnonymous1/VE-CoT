@@ -62,4 +62,4 @@ python client/create_dataset_client.py
 
 ![Watch the demo](resources/demo.png)
 
-查看上方图片或 [点击此处](https://github.com/AAAnonymous1/VE-CoT/releases/tag/v0.0.1) 下载演示视频。
+View the image above or [click here](https://github.com/AAAnonymous1/VE-CoT/releases/tag/v0.0.1) to download the demo video.
