@@ -402,8 +402,8 @@ async def test_prompt():
     """
     try:
         mcp_client = MCPClient()
-        server_dict = {"mcp_vision_server":"/home/c303-1/lzy/GroundingDINO/mcp-servers/mcp_vision_server.py",
-                    "mcp_search_server":"/home/c303-1/lzy/GroundingDINO/mcp-servers/mcp_search_server.py"}
+        server_dict = {"mcp_vision_server":"your_server_python_path",
+                    "mcp_search_server":"your_server_python_path"}
         await mcp_client.connect_to_server(server_dict)
         tool_dict = await mcp_client.get_tools()
         print(await format_prompt(tool_dict, "dataset"))
