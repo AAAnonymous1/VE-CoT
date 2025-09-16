@@ -204,7 +204,7 @@ async def run_vision_agent(image_path, dataset_list):
     input_token = 0
     output_token = 0
     mcp_client = MCPClient()
-    qwen_client = OpenAI(api_key="your_qwen_api_key", base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    qwen_client = OpenAI(api_key="your_qwen_api_key", base_url="qwen_api_url")
     try:
         logging.basicConfig(
             level=logging.INFO,
@@ -213,7 +213,7 @@ async def run_vision_agent(image_path, dataset_list):
         )
         logging.info("Initializing connection")
         server_dict = {"mcp_vision_server":"your_server_.py_file_path",
-                       "mcp_search_server":"/home/c303-1/lzy/GroundingDINO/mcp-servers/mcp_search_server.py"}
+                       "mcp_search_server":"your_server_.py_file_path"}
         await mcp_client.connect_to_server(server_dict)
         tool_dict = await mcp_client.get_tools()
         dataset_prompt = await format_prompt(tool_dict,"dataset")
