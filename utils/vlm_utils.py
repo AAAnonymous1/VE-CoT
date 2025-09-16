@@ -70,8 +70,7 @@ async def vlm_prepare_dataset(image_path: str, task_type: str, **kwargs) -> str:
         ]
         )
     
-async def vlm_process(image_path: str, task_type: str, ) -> str:
-    # TODO:设计不同类型任务对应不同prompt
+async def vlm_process(image_path: str, task_type: str) -> str:
     try:
         prompt = prepare_prompt("process", task_type)
         message = {'role': 'user', 
